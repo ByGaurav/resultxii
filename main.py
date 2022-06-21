@@ -1,7 +1,7 @@
 import streamlit as st
 def clean(txt):
-    with txt as f:
-            for line in f:
+    f=txt
+    for line in f:
              if "301" in line:
                  st.write("\n")
 
