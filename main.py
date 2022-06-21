@@ -1,5 +1,8 @@
-import streamlit as st
-st.write('Hello World')
-txt = st.text_area('Text to analyze', "")
-if st.button('Press Me'):
-     st.write(txt)
+form = st.form(key='my-form')
+name = form.text_input('Enter your name')
+submit = form.form_submit_button('Submit')
+
+st.write('Press submit to have your name printed below')
+
+if submit:
+    st.write(f'hello {name}')
