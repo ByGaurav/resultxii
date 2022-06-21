@@ -2,8 +2,8 @@ import streamlit as st
 def clean(txt):
     for line in txt:
         if "301" in line:
-            st.write("\nH")\
-            
+            st.write("H")
+
 form = st.form(key='my-form')
 txt = form.text_area('Enter your Result')
 submit = form.form_submit_button('Submit')
