@@ -1,7 +1,7 @@
 import streamlit as st
 def clean(txt):
     for line in txt:
-        st.text(line)
+        st.text(txt)
 
 form = st.form(key='my-form')
 txt = form.text_area('Enter your Result')
