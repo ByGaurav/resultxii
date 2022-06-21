@@ -7,3 +7,5 @@ st.write('Press submit to have your name printed below')
 
 if submit:
     st.write(f'hello {name}')
+    st.text(f'{name}')
+
