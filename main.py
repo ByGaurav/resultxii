@@ -4,7 +4,7 @@ def clean(txt):
         if '301' in line:
             st.write('\n')
             line1 = line.split()   #Reading first line in line1
-            line=next(txt)
+            line=line.next()
             line = line.replace("F E", "FE")
             line2 =line.split() #Reading Second line in line2
             if len(line2)<12:
