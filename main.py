@@ -1,7 +1,7 @@
 import streamlit as st
 def clean(txt):
     for line in txt.readlines():
-        if '301' in line:
+        if '301' in line.split():
             st.write('\n')
             line1 = line.split()   #Reading first line in line1
             line=next(line)
