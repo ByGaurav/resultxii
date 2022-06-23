@@ -30,5 +30,6 @@ def clean(txt):
 
 uploaded_file = st.file_uploader("Add text file !")
 if uploaded_file:
-    for line in uploaded_file:
-        st.write(line)
+    clean(uploaded_file)
+    #for line in uploaded_file:
+        #st.write(line)
