@@ -16,7 +16,7 @@ def clean(txt):
             st.write(',')
             #f1.write(line1[1])  # Uncomment to write gender
             #f1.write(',')   #Uncoment to write gender
-
+/*
 form = st.form(key='my-form')
 txt = form.text_area('Enter your Result')
 submit = form.form_submit_button('Submit')
@@ -26,3 +26,9 @@ if submit:
     #st.text(f'{name}')
     clean(txt)
 
+*/
+
+uploaded_file = st.file_uploader("Add text file !")
+if uploaded_file:
+    for line in uploaded_file:
+        st.write(line)
