@@ -2,6 +2,7 @@ import streamlit as st
 def clean(data_file):
     for line in data_file:
         st.write(line)
+        break
    
 #form = st.form(key='my-form')
 #txt = form.text_area('Enter your Result')
