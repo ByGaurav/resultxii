@@ -16,7 +16,7 @@ def clean(data_file):
 
 data_file = st.file_uploader("Add text file !",type=["txt"])
 if data_file:
-    data_file = str(data_file.read(),"utf-8")
+    #data_file = str(data_file.read(),"utf-8")
     clean(data_file)
     #for line in uploaded_file:
         #st.write(line)
