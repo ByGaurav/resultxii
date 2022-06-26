@@ -1,10 +1,11 @@
 import streamlit as st
 def clean(data_file):
-    for line in data_file:
-        #line = line.decode('ascii')
-        #line=next(data_file)
-        st.write(line)
-        break
+    with open("out.txt", "w") as f1:
+        for line in data_file:
+            line = line.decode('ascii')
+            line=next(data_file)
+            st.write(line)
+            break
    
 #form = st.form(key='my-form')
 #txt = form.text_area('Enter your Result')
@@ -19,7 +20,4 @@ def clean(data_file):
 
 data_file = st.file_uploader("Add text file !",type=["txt"])
 if data_file:
-    data_file = data_file.decode('ascii')
     clean(data_file)
-    #for line in uploaded_file:
-        #st.write(line)
