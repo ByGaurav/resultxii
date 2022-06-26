@@ -63,6 +63,12 @@ def process_file():
     df['SUB4']=df['SUB4'].map(scode)
     df['SUB5']=df['SUB5'].map(scode)
     df['SUB6']=df['SUB6'].map(scode)
+    
+    # Column List Index Containing Marks
+    cList=[3,6,9,12,15]
+    # Convert Text to Number
+    df = df[headerRow].apply(pd.to_numeric,errors='coerce').fillna(df)
+    
     st.dataframe(df)
 
     
