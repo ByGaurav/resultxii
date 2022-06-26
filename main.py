@@ -95,7 +95,7 @@ footer {visibility: hidden; }
 header {visibility: hidden;}
 </style>
 """
-st.markdown (hide_st_style, unsafe_allow_html=True)
+st.markdown(hide_st_style, unsafe_allow_html=True)
 data_file = st.file_uploader("Add text file !",type=["txt"])
 if data_file:
     clean(data_file)
