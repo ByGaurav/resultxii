@@ -12,6 +12,7 @@ def clean(f):
 
                  line1 = line.split()   #Reading first line in line1
                  line=next(f)
+                 line = line.decode('ascii')
                  line = line.replace("F E", "E")
                  line2 =line.split() #Reading Second line in line2
                  if len(line2)<12:
