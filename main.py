@@ -1,7 +1,7 @@
 import streamlit as st
 def clean(data_file):
     for line in data_file:
-        line = line.decode('ascii')
+        #line = line.decode('ascii')
         #line=next(data_file)
         st.write(line)
         break
@@ -19,7 +19,7 @@ def clean(data_file):
 
 data_file = st.file_uploader("Add text file !",type=["txt"])
 if data_file:
-    #data_file = str(data_file.read(),"utf-8")
+    data_file = data_file.decode('ascii')
     clean(data_file)
     #for line in uploaded_file:
         #st.write(line)
