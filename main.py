@@ -79,23 +79,16 @@ def process_file():
     st.dataframe(df_original.style.format({"Total": "{:.0f}","Per": "{:.2f}"}))
 
     
-#form = st.form(key='my-form')
-#txt = form.text_area('Enter your Result')
-#submit = form.form_submit_button('Submit')
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            .css-1rs6os {visibility: hidden;}
+            .css-17ziqus {visibility: hidden;}
+            """
+st.markdown(hide_st_style,unsafe_allow_html=True)
 
-#if submit:
-    #st.write(f'hello {name}')
-    #st.text(f'{name}')
-#    clean(txt)
-
-hide_st_style ="""
-                ‹style>
-                #MainMenu {visibility: hidden;}
-                footer {visibility: hidden; }
-                header {visibility: hidden;}
-                </style>
-                """
-st.markdown(hide_st_style, unsafe_allow_html=True)
 data_file = st.file_uploader("Add text file !",type=["txt"])
 if data_file:
     clean(data_file)
