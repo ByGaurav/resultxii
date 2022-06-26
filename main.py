@@ -48,7 +48,17 @@ def clean(f):
                           j=j+2
     f1.close()
 
-   
+def process_file:
+    import pandas as pd
+    import numpy as np
+    session ='2020-21'
+    headerRow = ['R.No.','Name','SUB1','MRK1','GRD1','SUB2','MRK2','GRD2',\
+           'SUB3','MRK3','GRD3','SUB4','MRK4','GRD4','SUB5','MRK5',\
+           'GRD5','SUB6','MRK6','GRD6','Res']
+    df = pd.read_csv('out.txt', skipinitialspace=True, usecols=headerRow)
+    st.dataframe(df)
+
+    
 #form = st.form(key='my-form')
 #txt = form.text_area('Enter your Result')
 #submit = form.form_submit_button('Submit')
@@ -63,3 +73,5 @@ def clean(f):
 data_file = st.file_uploader("Add text file !",type=["txt"])
 if data_file:
     clean(data_file)
+    st.write('Hello')
+    process_file()
