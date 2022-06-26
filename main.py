@@ -46,6 +46,7 @@ def clean(f):
                                f1.write(line2[k].strip())
 
                           j=j+2
+    f1.close()
 
    
 #form = st.form(key='my-form')
