@@ -108,6 +108,7 @@ def process_file():
         df_sub = df_sub.append(df5, ignore_index = True)
          # Sorted Dataframe of Subject
         df_sub = df_sub.loc[pd.to_numeric(df_sub.MRK, errors='coerce').sort_values(ascending=False).index]
+        df_sub = df_sub.append(df_sub)
     st.dataframe(df_sub)
 hide_st_style = """
             <style>
