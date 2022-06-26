@@ -69,9 +69,9 @@ def process_file():
     # Convert Text to Number
     #df = df[headerRow].apply(pd.to_numeric,errors='coerce').fillna(df)
     #Calculating Total
-    df['Total']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)
+    df['Total']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1).round(decimals=2)
     #Calculating Percentage
-    df['Per']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)/5
+    df['Per']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)/5.round(decimals=2)
     st.dataframe(df)
 
     
