@@ -1,6 +1,6 @@
 import streamlit as st
 def clean(txt):
-    with open("txt","r") as f:
+    with open("txt.txt","r") as f:
         for line in f:
             if '301' in line.split():
                 st.write('\n')
