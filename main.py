@@ -69,7 +69,7 @@ def process_file():
     # Convert Text to Number
     df = df[headerRow].apply(pd.to_numeric,errors='coerce').fillna(df)
     
-    st.dataframe(df)
+    #st.dataframe(df)
 
     
 #form = st.form(key='my-form')
