@@ -87,5 +87,5 @@ def process_file():
 data_file = st.file_uploader("Add text file !",type=["txt"])
 if data_file:
     clean(data_file)
-    st.write('Hello')
     process_file()
+    st.write('Hello')
