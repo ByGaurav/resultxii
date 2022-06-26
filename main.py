@@ -56,7 +56,14 @@ def process_file():
            'SUB3','MRK3','GRD3','SUB4','MRK4','GRD4','SUB5','MRK5',\
            'GRD5','SUB6','MRK6','GRD6','Res']
     df = pd.read_csv('out.txt', skipinitialspace=True, usecols=headerRow)
-    st.dataframe(df)
+    scode = {row[0] : row[1] for _, row in pd.read_csv("subject_code.csv").iterrows()}
+    df['SUB1']=df['SUB1'].map(scode)
+    df['SUB2']=df['SUB2'].map(scode)
+    df['SUB3']=df['SUB3'].map(scode)
+    df['SUB4']=df['SUB4'].map(scode)
+    df['SUB5']=df['SUB5'].map(scode)
+    df['SUB6']=df['SUB6'].map(scode)
+    st.write(df)
 
     
 #form = st.form(key='my-form')
