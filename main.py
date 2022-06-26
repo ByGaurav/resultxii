@@ -7,9 +7,9 @@ def clean(f):
        'SUB6'+','+'MRK6'+','+'GRD6'+','+'we'+','+'hp'+','+'gs'+','+'Res')
         for line in f:
             line = line.decode('ascii')
-            line=next(f)
-            st.write(line)
-            break
+            if "301" in line:
+                st.write(line)
+           
    
 #form = st.form(key='my-form')
 #txt = form.text_area('Enter your Result')
