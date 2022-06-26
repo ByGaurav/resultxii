@@ -67,7 +67,7 @@ def process_file():
     # Column List Index Containing Marks
     cList=[3,6,9,12,15]
     # Convert Text to Number
-    df = df[headerRow].apply(pd.to_numeric,errors='coerce').fillna(df)
+    #df = df[headerRow].apply(pd.to_numeric,errors='coerce').fillna(df)
     #Calculating Total
     df['Total']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)
     #Calculating Percentage
