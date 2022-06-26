@@ -70,6 +70,8 @@ def process_file():
     df = df[headerRow].apply(pd.to_numeric,errors='coerce').fillna(df)
     #Calculating Total
     df['Total']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)
+    #Calculating Percentage
+    df['Per']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)/5
     #st.dataframe(df)
 
     
