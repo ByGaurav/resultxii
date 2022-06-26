@@ -7,7 +7,7 @@ def clean(f):
        'SUB6'+','+'MRK6'+','+'GRD6'+','+'we'+','+'hp'+','+'gs'+','+'Res')
         for line in f:
             line = line.decode('ascii')
-             if "301" in line:
+            if "301" in line:
                  f1.write("\n")
 
                  line1 = line.split()   #Reading first line in line1
