@@ -1,6 +1,7 @@
 import streamlit as st
 def clean(data_file):
     for line in data_file:
+        line = line.decode('ascii')
         line=next(data_file)
         st.write(line)
         break
