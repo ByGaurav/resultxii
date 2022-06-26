@@ -73,6 +73,7 @@ def process_file():
     #Calculating Percentage
     df['Per']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)/5
     df_original = df
+    df_original['SUB6'] = df_original['SUB6'].fillna("")
     st.dataframe(df_original.style.format({"Total": "{:.0f}","Per": "{:.2f}"}))
 
     
