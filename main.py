@@ -79,10 +79,10 @@ def process_file():
     df['Total']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)
     #Calculating Percentage
     df['Per']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)/5
-    st.write(df)
+    st.dataframe(df)
     # Making Sorted Data Frame
     df_sorted = df.sort_values('Total',ascending=False)
-    st.write(df_sorted)
+    st.dataframe(df_sorted)
     
 #form = st.form(key='my-form')
 #txt = form.text_area('Enter your Result')
