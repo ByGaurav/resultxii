@@ -63,26 +63,8 @@ def process_file():
     df['SUB4']=df['SUB4'].map(scode)
     df['SUB5']=df['SUB5'].map(scode)
     df['SUB6']=df['SUB6'].map(scode)
-    
-    # Column List Index Containing Marks
-    cList=[3,6,9,12,15]
-
-          # Top Row for Excel
-
-    topEx =['R.No.','Name','SUB1','MRK1','GRD1','SUB2','MRK2','GRD2','SUB3','MRK3',\
-          'GRD3','SUB4','MRK4','GRD4','SUB5','MRK5','GRD5','SUB6','MRK6','GRD6','Total','Per','Res']
-
-    # Convert Text to Number
-    df = df[headerRow].apply(pd.to_numeric,errors='coerce').fillna(df)
-
-    #Calculating Total
-    df['Total']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)
-    #Calculating Percentage
-    df['Per']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)/5
     st.dataframe(df)
-    # Making Sorted Data Frame
-    df_sorted = df.sort_values('Total',ascending=False)
-    st.dataframe(df_sorted)
+
     
 #form = st.form(key='my-form')
 #txt = form.text_area('Enter your Result')
