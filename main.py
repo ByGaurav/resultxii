@@ -72,7 +72,8 @@ def process_file():
     df['Total']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)
     #Calculating Percentage
     df['Per']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)/5
-    st.dataframe(df.style.format({"Total": "{:.0f}","Per": "{:.2f}"}))
+    df_original = df
+    st.dataframe(df_original.style.format({"Total": "{:.0f}","Per": "{:.2f}"}))
 
     
 #form = st.form(key='my-form')
