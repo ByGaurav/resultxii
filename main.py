@@ -48,7 +48,7 @@ def clean(f):
                           j=j+2
     f1.close()
 
-def process_file:
+def process_file():
     import pandas as pd
     import numpy as np
     session ='2020-21'
