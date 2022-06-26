@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
 # Clean Txt File
 def clean(f):
     with open("out.txt", "w") as f1:
