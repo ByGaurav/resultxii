@@ -128,7 +128,11 @@ def process_file():
     # Converting Marks to Numbers
     df_sub_A=df_sub_A[['Name', 'Sub', 'MRK','GRD']].apply(pd.to_numeric,errors='coerce').fillna(df_sub_A)
     st.dataframe(df_sub)
+
+    grade_count = df_sub_A.groupby(['Sub','GRD']).size().reset_index(name='counts')
+    st.dataframe(grade_count)
     
+  
     #Creating Pie Chart
     all_sub_pie = px.pie(df_sub_A,title="Subject Grades",values='GRD',names='Sub')
     st.plotly_chart(all_sub_pie)
