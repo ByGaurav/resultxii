@@ -150,8 +150,8 @@ hide_st_style = """
             footer {visibility: hidden;}
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
-            .row_heading.level0 {display:none}
-            .blank {display:none}
+            .row_heading.level0 {display:none;}
+            .blank {display:none;}
             .css-17ziqus {visibility: hidden;}
             """
 st.markdown(hide_st_style,unsafe_allow_html=True)
