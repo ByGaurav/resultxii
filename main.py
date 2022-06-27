@@ -129,7 +129,7 @@ def process_file():
     df_sub_A=df_sub_A[['Name', 'Sub', 'MRK','GRD']].apply(pd.to_numeric,errors='coerce').fillna(df_sub_A)
     st.dataframe(df_sub)
 
-    grade_count = df_sub_A.groupby(['Sub','GRD']).size().reset_index(name='Observation')
+    grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(name='Observation')
     st.dataframe(grade_count)
     
   
