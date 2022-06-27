@@ -152,6 +152,15 @@ hide_st_style = """
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
             """
+
+hide_dataframe_row_index = """
+            <style>
+            .row_heading.level0 {display:none}
+            .blank {display:none}
+            </style>
+            """
+st.markdown(hide_dataframe_row_index, unsafe_allow_html=True)
+
 st.markdown(hide_st_style,unsafe_allow_html=True)
 
 data_file = st.file_uploader("Add text file !",type=["txt"])
