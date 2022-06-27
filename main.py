@@ -82,7 +82,7 @@ def process_file():
     df_original['SUB6'] = df_original['SUB6'].fillna("")
     df_original['MRK6'] = df_original['MRK6'].fillna("")
     df_original['GRD6'] = df_original['GRD6'].fillna("")
-    st.dataframe(df_original.round({"Total": 0,"Per": 2}).astype(str).replace(' .0' '' regex=true))
+    st.dataframe(df_original.round({"Total": 0,"Per": 2}).astype(str))
     #st.dataframe(df_original.style.format({"Total": "{:.0f}","Per": "{:.2f}"}).astype(str))
     
     def analy(subject):
