@@ -135,7 +135,7 @@ def process_file():
 
     st.dataframe(df_sub_A.loc[(df_sub_A['Sub'] == show_subs)]) # display DataFrame of Selected Subject
 
-    grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(name='Observation')
+    grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(name='Count')
     
     st.dataframe(grade_count.loc[(grade_count['Sub'] == show_subs)]) # display DataFrame of Selected Subject
     
@@ -150,6 +150,8 @@ hide_st_style = """
             footer {visibility: hidden;}
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
+            .row_heading.level0 {display:none}
+            .blank {display:none}
             .css-17ziqus {visibility: hidden;}
             """
 st.markdown(hide_st_style,unsafe_allow_html=True)
