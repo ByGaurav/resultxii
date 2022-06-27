@@ -142,7 +142,7 @@ def process_file():
     
     st.dataframe(grade_count.loc[(grade_count['Sub'] == show_subs)]) # display DataFrame of Selected Subject
 
-    df_test = df_sub_A.groupby(['Sub','GRD']).count()[['GRD']]
+    df_test = df_sub_A.groupby(['Sub','GRD']).count()[['Total']]
     st.write(df_test)
 
     # Calculating School Result
