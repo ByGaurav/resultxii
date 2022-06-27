@@ -160,10 +160,12 @@ def process_file():
     st.write("Pass: ",int(school_pass))
     st.write("Fail: ",int(school_fail))
     st.write("Compartment: ",int(school_comp))
-    st.write('------- FAIL --------------')
-    st.write(school_fail_students)
-    st.write('------- COMPARTMENT --------------')
-    st.write(school_comp_students)
+    if not school_fail_students.empty:
+      st.write('------- FAIL --------------')
+      st.write(school_fail_students)
+    if not school_comp_students.empty:
+      st.write('------- COMPARTMENT --------------')
+      st.write(school_comp_students)
     
     # <---------------  Creating Analysis DataFrames Subjectwise   ----------------------->
     
@@ -256,7 +258,8 @@ def process_file():
     analysis = pd.concat([qpi,df_count,df_pass,df_fail,\
                           df_100,df_95,df_90,df_85,df_80,df_75,df_70,df_65,df_60,df_55,df_50,df_45,df_40,\
                           df_A1,df_A2,df_B1,df_B2,df_C1,df_C2,df_D1,df_D2],axis=1,sort=False)
-    st.dataframe(analysis.fillna(""))
+    analysis = analysis.fillna("")
+    st.dataframe(analysis)
   
 hide_st_style = """
             <style>
