@@ -131,7 +131,7 @@ def process_file():
     
     #Creating Pie Chart
     all_sub_pie = px.pie(df_sub,title="",values='GRD',names='SUB')
-    st.ploty_chart(all_sub_pie)
+    st.plotly_chart(all_sub_pie)
     
 hide_st_style = """
             <style>
