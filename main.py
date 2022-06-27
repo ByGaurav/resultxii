@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import ploty.express as px
+from PIL import Image
 # Clean Txt File
 def clean(f):
     with open("out.txt", "w") as f1:
@@ -126,6 +128,10 @@ def process_file():
     # Converting Marks to Numbers
     df_sub_A=df_sub_A[['Name', 'Sub', 'MRK','GRD']].apply(pd.to_numeric,errors='coerce').fillna(df_sub_A)
     st.dataframe(df_sub)
+    
+    #Creating Pie Chart
+    all_sub_pie = px.pie(df_sub,title="",values='GRD',names='SUB')
+    st.ploty_chart(all_sub_pie)
     
 hide_st_style = """
             <style>
