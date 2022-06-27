@@ -79,11 +79,12 @@ def process_file():
     #Calculating Percentage
     df['Per'] = df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)/5
     df['Per'] = df['Per'].round(decimals = 3)
+    df['Per'] = df['Per'].apply(str)
     df_original = df
     df_original['SUB6'] = df_original['SUB6'].fillna("")
     df_original['MRK6'] = df_original['MRK6'].fillna("")
     df_original['GRD6'] = df_original['GRD6'].fillna("")
-    st.dataframe(df_original.apply(str))
+    st.dataframe(df_original.astype(str))
     #st.dataframe(df_original.style.format({"Total": "{:.0f}","Per": "{:.2f}"}).astype(str))
     
     def analy(subject):
