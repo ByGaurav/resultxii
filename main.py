@@ -131,9 +131,9 @@ def process_file():
 
     subs = df_sub_A['Sub'].unique().tolist()
 
-    show_subs = st.multiselect('Choose Subjects to Display',subs,default=subs)
+    show_subs = st.selectbox('Choose Subjects to Display',subs)
 
-    st.dataframe(show_subs)
+    st.dataframe(df_sub_A.loc[(df_sub_A['Sub'] == show_subs))
 
     grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(name='Observation')
     
