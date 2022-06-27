@@ -130,7 +130,7 @@ def process_file():
     st.dataframe(df_sub)
 
     grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(name='Observation')
-    st.dataframe(grade_count)
+    st.dataframe(grade_count,200)
     
   
     #Creating Pie Chart
