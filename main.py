@@ -133,6 +133,8 @@ def process_file():
 
     show_subs = st.multiselect('Choose Subjects to Display',subs,default=subs)
 
+    st.dataframe(show_subs)
+
     grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(name='Observation')
     
     st.dataframe(grade_count,800,500)
