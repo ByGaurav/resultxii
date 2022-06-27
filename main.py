@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import ploty.express as px
+import plotly.express as px
 from PIL import Image
 # Clean Txt File
 def clean(f):
