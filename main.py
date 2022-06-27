@@ -141,12 +141,123 @@ def process_file():
     grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(name='Count')
     
     st.dataframe(grade_count.loc[(grade_count['Sub'] == show_subs)]) # display DataFrame of Selected Subject
+
+
+    # Calculating School Result
+    school_qpi = round(df_sub_A.mean()[['MRK']],2)
+    school_pass = df[(df['Res']=='PASS')].count()[['Res']]
+    school_fail = df[(df['Res']=='FAIL')].count()[['Res']]
+    school_comp = df[(df['Res']=='COMP')].count()[['Res']]
     
+    school_fail_students = df[(df['Res']=='FAIL')]
+    school_comp_students = df[(df['Res']=='COMP')]
+    
+    data = [["School QPI",float(school_qpi)],["Pass",int(school_pass)],["Fail",int(school_fail)],["Compartment",int(school_comp)]]
+    qpi_df = pd.DataFrame(data, columns = ['Index', 'Values']) 
+    
+    #st.dataframe(df_sorted.head())
+    st.write("School QPI: ",float(school_qpi))
+    st.write("Pass: ",int(school_pass))
+    st.write("Fail: ",int(school_fail))
+    st.write("Compartment: ",int(school_comp))
+    st.write('------- FAIL --------------')
+    st.write(school_fail_students)
+    st.write('------- COMPARTMENT --------------')
+    st.write(school_comp_students)
+    
+    # <---------------  Creating Analysis DataFrames Subjectwise   ----------------------->
+    
+    df_count = df_sub_A.groupby('Sub').count()[['Name']]
+    df_count.columns = ['Appeared']
+    
+    df_pass = df_sub_A[\
+         (df_sub_A['GRD'] =='A1') | (df_sub_A['GRD'] =='A2') |\
+         (df_sub_A['GRD'] =='B1') | (df_sub_A['GRD'] =='B2') |\
+         (df_sub_A['GRD'] =='C1') | (df_sub_A['GRD'] =='C2') |\
+         (df_sub_A['GRD'] =='D1') | (df_sub_A['GRD'] =='D2')\
+         ].groupby('Sub').count()[['GRD']]
+    df_pass.columns = ['Pass']
+    
+    df_fail = df_sub_A[\
+         (df_sub_A['GRD'] !='A1') & (df_sub_A['GRD'] !='A2')&\
+         (df_sub_A['GRD'] !='B1') & (df_sub_A['GRD'] !='B2')&\
+         (df_sub_A['GRD'] !='C1') & (df_sub_A['GRD'] !='C2')&\
+         (df_sub_A['GRD'] !='D1') & (df_sub_A['GRD'] !='D2')\
+         ].groupby('Sub').count()[['GRD']]
+    df_fail.columns = ['Fail']
+    
+    df_100 = df_sub_A[(df_sub_A['MRK']==100)].groupby('Sub').count()[['MRK']]
+    df_100.columns = ['100']
+    
+    df_95 = df_sub_A[(df_sub_A['MRK']>95)].groupby('Sub').count()[['MRK']]
+    df_95.columns = ['95 & Above']
+    
+    df_90 = df_sub_A[(df_sub_A['MRK']>90)].groupby('Sub').count()[['MRK']]
+    df_90.columns = ['90 & Above']
+    
+    df_85 = df_sub_A[(df_sub_A['MRK']>85)].groupby('Sub').count()[['MRK']]
+    df_85.columns = ['85 & Above']
+    
+    df_80 = df_sub_A[(df_sub_A['MRK']>80)].groupby('Sub').count()[['MRK']]
+    df_80.columns = ['80 & Above']
+    
+    df_75 = df_sub_A[(df_sub_A['MRK']>75)].groupby('Sub').count()[['MRK']]
+    df_75.columns = ['75 & Above']
+    
+    df_70 = df_sub_A[(df_sub_A['MRK']>70)].groupby('Sub').count()[['MRK']]
+    df_70.columns = ['70 & Above']
+    
+    df_65 = df_sub_A[(df_sub_A['MRK']>65)].groupby('Sub').count()[['MRK']]
+    df_65.columns = ['65 & Above']
+    
+    df_60 = df_sub_A[(df_sub_A['MRK']>60)].groupby('Sub').count()[['MRK']]
+    df_60.columns = ['60 & Above']
+    
+    df_55 = df_sub_A[(df_sub_A['MRK']>55)].groupby('Sub').count()[['MRK']]
+    df_55.columns = ['55 & Above']
+    
+    df_50 = df_sub_A[(df_sub_A['MRK']>50)].groupby('Sub').count()[['MRK']]
+    df_50.columns = ['50 & Above']
+    
+    df_45 = df_sub_A[(df_sub_A['MRK']>45)].groupby('Sub').count()[['MRK']]
+    df_45.columns = ['45 & Above']
+    
+    df_40 = df_sub_A[(df_sub_A['MRK']>40)].groupby('Sub').count()[['MRK']]
+    df_40.columns = ['40 & Above']
+    
+    df_A1 = df_sub_A[(df_sub_A['GRD']=='A1')].groupby('Sub').count()[['GRD']]
+    df_A1.columns = ['A1']
+    
+    df_A2 = df_sub_A[(df_sub_A['GRD']=='A2')].groupby('Sub').count()[['GRD']]
+    df_A2.columns = ['A2']
+    
+    df_B1 = df_sub_A[(df_sub_A['GRD']=='B1')].groupby('Sub').count()[['GRD']]
+    df_B1.columns = ['B1']
+    
+    df_B2 = df_sub_A[(df_sub_A['GRD']=='B2')].groupby('Sub').count()[['GRD']]
+    df_B2.columns = ['B2']
+    
+    df_C1 = df_sub_A[(df_sub_A['GRD']=='C1')].groupby('Sub').count()[['GRD']]
+    df_C1.columns = ['C1']
+    
+    df_C2 = df_sub_A[(df_sub_A['GRD']=='C2')].groupby('Sub').count()[['GRD']]
+    df_C2.columns = ['C2']
+    
+    df_D1 = df_sub_A[(df_sub_A['GRD']=='D1')].groupby('Sub').count()[['GRD']]
+    df_D1.columns = ['D1']
+    
+    df_D2 = df_sub_A[(df_sub_A['GRD']=='D2')].groupby('Sub').count()[['GRD']]
+    df_D2.columns = ['D2']
+    
+    qpi = round(df_sub_A.groupby('Sub').mean()[['MRK']],2)
+    qpi.columns = ['QPI']
+    
+    # Joining all Datatframes to make a single Analysis Dataframe
+    analysis = pd.concat([qpi,df_count,df_pass,df_fail,\
+                          df_100,df_95,df_90,df_85,df_80,df_75,df_70,df_65,df_60,df_55,df_50,df_45,df_40,\
+                          df_A1,df_A2,df_B1,df_B2,df_C1,df_C2,df_D1,df_D2],axis=1,sort=False)
+    st.dataframe(analysis)
   
-    #Creating Pie Chart
-    all_sub_pie = px.pie(df_sub_A.astype(str),title="Subject Grades",values='GRD',names='Sub')
-    st.plotly_chart(all_sub_pie)
-    
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
