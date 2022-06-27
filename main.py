@@ -127,9 +127,14 @@ def process_file():
 
     # Converting Marks to Numbers
     df_sub_A=df_sub_A[['Name', 'Sub', 'MRK','GRD']].apply(pd.to_numeric,errors='coerce').fillna(df_sub_A)
-    st.dataframe(df_sub)
+    #st.dataframe(df_sub)
+
+    subs = df_sub_A['Sub'].unique().tolist()
+
+    show_subs = st.multiselect('Choose Subjects to Display',subs,default=subs)
 
     grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(name='Observation')
+    
     st.dataframe(grade_count,800,500)
     
   
