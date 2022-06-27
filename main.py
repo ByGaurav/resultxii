@@ -84,6 +84,7 @@ def process_file():
     df_original['SUB6'] = df_original['SUB6'].fillna("")
     df_original['MRK6'] = df_original['MRK6'].fillna("")
     df_original['GRD6'] = df_original['GRD6'].fillna("")
+    df_original.set_index('R.No.')
     st.dataframe(df_original.astype(str))
     #st.dataframe(df_original.style.format({"Total": "{:.0f}","Per": "{:.2f}"}).astype(str))
     
