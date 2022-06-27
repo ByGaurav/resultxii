@@ -51,7 +51,7 @@ def clean(f):
                           j=j+2
     f1.close()
     
-def analy(subject):
+def analy(subject,df):
 
     # subject = 'Paint'
 
@@ -124,7 +124,7 @@ def process_file():
         
     df_sub = pd.DataFrame()
     for i in scode:
-         df_sub = df_sub.append(analy(scode[i])) # Creating Dataframe of all the subjects using Function analy
+         df_sub = df_sub.append(analy(scode[i]),df) # Creating Dataframe of all the subjects using Function analy
 
     df_sub_A=df_sub[pd.to_numeric(df_sub['MRK'], errors='coerce').notnull()]
 
