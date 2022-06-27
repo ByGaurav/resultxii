@@ -130,7 +130,7 @@ def process_file():
     st.dataframe(df_sub)
     
     #Creating Pie Chart
-    all_sub_pie = px.pie(df_sub,title="",values='GRD',names='Sub')
+    all_sub_pie = px.pie(df_sub,title="",values='Sub',names='GRD')
     st.plotly_chart(all_sub_pie)
     
 hide_st_style = """
