@@ -37,6 +37,7 @@ with open(clean_file, "w") as f1:
     'SUB2'+','+'MRK2'+','+'GRD2'+','+'SUB3'+','+'MRK3'+','+'GRD3'+','+\
     'SUB4'+','+'MRK4'+','+'GRD4'+','+'SUB5'+','+'MRK5'+','+'GRD5'+','+\
     'SUB6'+','+'MRK6'+','+'GRD6'+','+'we'+','+'hp'+','+'gs'+','+'Res')
+    f = data_file
     for line in f:
         line = line.decode('ascii')
         if "301" in line:
