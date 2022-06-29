@@ -30,7 +30,7 @@ if not data_file:
     #process_file()
     #st.balloons()
 school_code = data_file.name[:-4]
-clean_file = school_code+".txt" 
+clean_file = school_code+"_clean.txt" 
 # Cleaning File
 with open(clean_file, "w") as f1:
     f1.write('R.No.'+','+'Name'+','+'SUB1'+','+'MRK1'+','+'GRD1'+','+\
