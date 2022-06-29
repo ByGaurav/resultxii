@@ -22,10 +22,11 @@ st.markdown(hide_st_style,unsafe_allow_html=True)
 
 # Check Uplaoded File
 data_file = st.file_uploader("",type=["txt"],help="Uplaod File Recieved From CBSE. Don't Make Any Changes to the File Upload as it is after Downloading")
-if data_file:
+if not data_file:
+  st.stop()
     #clean(data_file)
     #process_file()
     #st.balloons()
-  school_code = data_file.name[:-4]
-  import test.py
+school_code = data_file.name[:-4]
+  
   
