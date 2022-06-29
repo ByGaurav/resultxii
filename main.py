@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 from PIL import Image
-st.set_page_config(layout="wide",page_icon="🧊",page_title="CBSE Result Analysis")
+st.set_page_config(layout="wide",page_icon="chart_with_upwards_trend",page_title="CBSE Result Analysis")
 
 # Remove and Inject CSS  
 hide_st_style = """
