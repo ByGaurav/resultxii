@@ -20,7 +20,7 @@ hide_st_style = """
 st.markdown(hide_st_style,unsafe_allow_html=True)
 
 # Check Uplaoded File
-data_file = st.file_uploader("Add text file !",type=["txt"])
+data_file = st.file_uploader("",type=["txt"],help="Uplaod File Recieved From CBSE.")
 if data_file:
     #clean(data_file)
     #process_file()
