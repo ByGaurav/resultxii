@@ -15,6 +15,7 @@ hide_st_style = """
             .row_heading.level0 {display:none;}
             .blank {display:none;}
             .css-17ziqus {visibility: hidden;}
+            .viewerBadge_link__1S137 {visibility: hidden;}
             """
 
 st.markdown(hide_st_style,unsafe_allow_html=True)
