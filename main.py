@@ -25,5 +25,5 @@ if data_file:
     #clean(data_file)
     #process_file()
     #st.balloons()
-  school_code = data_file.name
+  school_code = data_file.name[:-4]
   st.write(school_code)
