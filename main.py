@@ -27,4 +27,5 @@ if data_file:
     #process_file()
     #st.balloons()
   school_code = data_file.name[:-4]
+  import test.py
   
