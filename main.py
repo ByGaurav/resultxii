@@ -81,3 +81,32 @@ with open(clean_file, "w") as f1:
                       j=j+2
 f1.close()
 st.write(clean_file)
+
+# Making First Data Frame
+headerRow = ['R.No.','Name','SUB1','MRK1','GRD1','SUB2','MRK2','GRD2',\
+           'SUB3','MRK3','GRD3','SUB4','MRK4','GRD4','SUB5','MRK5',\
+           'GRD5','SUB6','MRK6','GRD6','Res']
+df = pd.read_csv(clean_file, skipinitialspace=True, usecols=headerRow)
+scode = {row[0] : row[1] for _, row in pd.read_csv("subject_code.csv").iterrows()}
+df['SUB1']=df['SUB1'].map(scode)
+df['SUB2']=df['SUB2'].map(scode)
+df['SUB3']=df['SUB3'].map(scode)
+df['SUB4']=df['SUB4'].map(scode)
+df['SUB5']=df['SUB5'].map(scode)
+df['SUB6']=df['SUB6'].map(scode)
+
+# Column List Index Containing Marks
+cList=[3,6,9,12,15]
+# Convert Text to Number
+#df = df[headerRow].apply(pd.to_numeric,errors='coerce').fillna(df)
+#Calculating Total
+df['Total']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)
+#Calculating Percentage
+df['Per'] = df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)/5
+df['Per'] = df['Per'].round(decimals = 3)
+df['Per'] = df['Per'].apply(str)
+df_original = df
+df_original['SUB6'] = df_original['SUB6'].fillna("")
+df_original['MRK6'] = df_original['MRK6'].fillna("")
+df_original['GRD6'] = df_original['GRD6'].fillna("")
+st.dataframe(df_original.astype(str))}}}
