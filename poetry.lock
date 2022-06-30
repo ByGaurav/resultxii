@@ -1011,6 +1011,14 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "pyxlsb"
+version = "1.0.9"
+description = "Excel 2007-2010 Binary Workbook (xlsb) parser"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pyzmq"
 version = "23.2.0"
 description = "Python bindings for 0MQ"
@@ -1354,6 +1362,14 @@ python-versions = "*"
 notebook = ">=4.4.1"
 
 [[package]]
+name = "xlsxwriter"
+version = "3.0.3"
+description = "A Python module for creating Excel XLSX files."
+category = "main"
+optional = false
+python-versions = ">=3.4"
+
+[[package]]
 name = "yarl"
 version = "1.7.2"
 description = "Yet another URL library"
@@ -1380,7 +1396,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.0,<3.9"
-content-hash = "8bb59135a0e60ec7b35062ca70a42600888dfccd0f68a0247982fa22fc96eb88"
+content-hash = "f3ae44086ffeff867feac0b7cd77238cbbcacfe44feaf3c0234cef28f3b75e38"
 
 [metadata.files]
 aiohttp = [
@@ -2219,6 +2235,10 @@ pywinpty = [
     {file = "pywinpty-2.0.5-cp39-none-win_amd64.whl", hash = "sha256:e59a508ae78374febada3e53b5bbc90b5ad07ae68cbfd72a2e965f9793ae04f3"},
     {file = "pywinpty-2.0.5.tar.gz", hash = "sha256:e125d3f1804d8804952b13e33604ad2ca8b9b2cac92b27b521c005d1604794f8"},
 ]
+pyxlsb = [
+    {file = "pyxlsb-1.0.9-py2.py3-none-any.whl", hash = "sha256:af2daeba799de62eaa05f434607569c1dc39268ad8a0efa5343e027e690289e6"},
+    {file = "pyxlsb-1.0.9.tar.gz", hash = "sha256:286f08a55703338eac470fa7fecd6ab8b44dcb0eea8a3eb3ef503ba226e4966a"},
+]
 pyzmq = [
     {file = "pyzmq-23.2.0-cp310-cp310-macosx_10_15_universal2.whl", hash = "sha256:22ac0243a41798e3eb5d5714b28c2f28e3d10792dffbc8a5fca092f975fdeceb"},
     {file = "pyzmq-23.2.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:f685003d836ad0e5d4f08d1e024ee3ac7816eb2f873b2266306eef858f058133"},
@@ -2447,6 +2467,10 @@ werkzeug = [
 widgetsnbextension = [
     {file = "widgetsnbextension-3.6.0-py2.py3-none-any.whl", hash = "sha256:4fd321cad39fdcf8a8e248a657202d42917ada8e8ed5dd3f60f073e0d54ceabd"},
     {file = "widgetsnbextension-3.6.0.tar.gz", hash = "sha256:e84a7a9fcb9baf3d57106e184a7389a8f8eb935bf741a5eb9d60aa18cc029a80"},
+]
+xlsxwriter = [
+    {file = "XlsxWriter-3.0.3-py3-none-any.whl", hash = "sha256:df0aefe5137478d206847eccf9f114715e42aaea077e6a48d0e8a2152e983010"},
+    {file = "XlsxWriter-3.0.3.tar.gz", hash = "sha256:e89f4a1d2fa2c9ea15cde77de95cd3fd8b0345d0efb3964623f395c8c4988b7f"},
 ]
 yarl = [
     {file = "yarl-1.7.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:f2a8508f7350512434e41065684076f640ecce176d262a7d54f0da41d99c5a95"},
