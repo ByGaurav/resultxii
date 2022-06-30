@@ -1,21 +1,23 @@
-import fractions
-import functools
 import streamlit as st
+from streamlit import caching
+
 import pandas as pd
 import numpy as np
 import plotly.express as px
 from PIL import Image
+from io import BytesIO
+from pyxlsb import open_workbook as open_xlsb
 st.set_page_config(layout="wide",page_icon="rocket",page_title="CBSE XII Result Analysis")
 
 # Remove and Inject CSS  
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
+            .row_heading.level0 {display:none;}
+            .blank {display:none;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
-            .row_heading.level0 {display:none;}
-            .blank {display:none;}
             .css-17ziqus {visibility: hidden;}
             .viewerBadge_link__1S137 {visibility: hidden;}
             """
@@ -30,7 +32,8 @@ if not data_file:
     #process_file()
     #st.balloons()
 school_code = data_file.name[:-4]
-clean_file = school_code+"_clean.txt" 
+clean_file = school_code+"_clean.txt"
+excel_file = school_code+".xlsx"
 # Cleaning File
 with open(clean_file, "w") as f1:
     f1.write('R.No.'+','+'Name'+','+'SUB1'+','+'MRK1'+','+'GRD1'+','+\
@@ -80,7 +83,6 @@ with open(clean_file, "w") as f1:
 
                       j=j+2
 f1.close()
-st.write(clean_file)
 
 # Making First Data Frame
 headerRow = ['R.No.','Name','SUB1','MRK1','GRD1','SUB2','MRK2','GRD2',\
@@ -103,10 +105,23 @@ cList=[3,6,9,12,15]
 df['Total']= df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)
 #Calculating Percentage
 df['Per'] = df.iloc[:,cList].apply(pd.to_numeric, errors='coerce').sum(axis=1)/5
-df['Per'] = df['Per'].round(decimals = 3)
-df['Per'] = df['Per'].apply(str)
-df_original = df
-df_original['SUB6'] = df_original['SUB6'].fillna("")
-df_original['MRK6'] = df_original['MRK6'].fillna("")
-df_original['GRD6'] = df_original['GRD6'].fillna("")
-st.dataframe(df_original.astype(str))
+df['SUB6'] = df['SUB6'].fillna("")
+df['MRK6'] = df['MRK6'].fillna("")
+df['GRD6'] = df['GRD6'].fillna("")
+
+def to_excel(df):
+    output = BytesIO()
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+    df.to_excel(writer, index=False, sheet_name='Original')
+    workbook = writer.book
+    worksheet = writer.sheets['Original']
+    format1 = workbook.add_format({'num_format': '0.00'}) 
+    worksheet.set_column('W:W', None, format1)  
+    writer.save()
+    processed_data = output.getvalue()
+    workbook.close()
+    return processed_data
+df_xlsx = to_excel(df)
+st.download_button(label='📥 Download Current Result',data=df_xlsx ,file_name= excel_file)
+df1 = pd.read_excel(excel_file,sheet_name='Original',usecols='B:X',header=0)
+st.dataframe(df1)
