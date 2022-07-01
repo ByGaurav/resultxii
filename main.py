@@ -6,6 +6,9 @@ from PIL import Image
 from io import BytesIO
 from pyxlsb import open_workbook as open_xlsb
 st.set_page_config(layout="wide",page_icon="rocket",page_title="CBSE XII Result Analysis")
+st.title('My title')
+st.header('My header')
+st.subheader('My sub')
 
 # Remove and Inject CSS  
 hide_st_style = """
@@ -22,7 +25,7 @@ hide_st_style = """
 st.markdown(hide_st_style,unsafe_allow_html=True)
 
 # Check Uplaoded File
-data_file = st.file_uploader("upload")
+data_file = st.file_uploader("")
 #data_file = st.file_uploader("",type=["txt"],help="Uplaod File Recieved From CBSE. Don't Make Any Changes to the File Upload as it is after Downloading")
 if not data_file:
   st.stop()
