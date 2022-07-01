@@ -6,9 +6,6 @@ from PIL import Image
 from io import BytesIO
 from pyxlsb import open_workbook as open_xlsb
 st.set_page_config(layout="wide",page_icon="rocket",page_title="CBSE XII Result Analysis")
-st.title('My title')
-st.header('My header')
-st.subheader('My sub')
 
 # Remove and Inject CSS  
 hide_st_style = """
@@ -16,7 +13,6 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             viewerBadge_container__1QSob {display: none;}
             footer {visibility: hidden;}
-            footer:after {content:'Gaurav';display:block;position:relative;color:totmato;visibility: visible;}
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
@@ -286,3 +282,5 @@ analysis = pd.concat([qpi,df_count,df_pass,df_fail,\
                       df_100,df_95,df_90,df_85,df_80,df_75,df_70,df_65,df_60,df_55,df_50,df_45,df_40,\
                       df_A1,df_A2,df_B1,df_B2,df_C1,df_C2,df_D1,df_D2],axis=1,sort=False)
 st.dataframe(analysis.fillna(0).astype(str))
+
+st.info("Copyright Mr. Gaurav Gupta. You are not allowed to Copy the code")
