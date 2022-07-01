@@ -169,3 +169,26 @@ grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(nam
 st.write(type(grade_count))
 with col2:
   st.dataframe(grade_count.loc[(grade_count['Sub'] == show_subs)]) # display DataFrame of Selected Subject
+# Calculating School Result
+school_qpi = round(df_sub_A.mean()[['MRK']],2)
+school_pass = df[(df['Res']=='PASS')].count()[['Res']]
+school_fail = df[(df['Res']=='FAIL')].count()[['Res']]
+school_comp = df[(df['Res']=='COMP')].count()[['Res']]
+
+school_fail_students = df[(df['Res']=='FAIL')]
+school_comp_students = df[(df['Res']=='COMP')]
+
+data = [["School QPI",float(school_qpi)],["Pass",int(school_pass)],["Fail",int(school_fail)],["Compartment",int(school_comp)]]
+qpi_df = pd.DataFrame(data, columns = ['Index', 'Values']) 
+
+#st.dataframe(df_sorted.head())
+st.write("School QPI: ",float(school_qpi))
+st.write("Pass: ",int(school_pass))
+st.write("Fail: ",int(school_fail))
+st.write("Compartment: ",int(school_comp))
+if not school_fail_students.empty:
+  st.write('------- FAIL --------------')
+  st.write(school_fail_students)
+if not school_comp_students.empty:
+  st.write('------- COMPARTMENT --------------')
+  st.write(school_comp_students)
