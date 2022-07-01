@@ -154,7 +154,8 @@ def analy(subject):
 df_sub = pd.DataFrame()
 for i in scode:
   df_sub = df_sub.append(analy(scode[i])) # Creating Dataframe of all the subjects using Function analy
-    df_sub_A=df_sub[pd.to_numeric(df_sub['MRK'], errors='coerce').notnull()]
+
+df_sub_A=df_sub[pd.to_numeric(df_sub['MRK'], errors='coerce').notnull()]
 
 # Converting Marks to Numbers
 df_sub_A=df_sub_A[['Name', 'Sub', 'MRK','GRD']].apply(pd.to_numeric,errors='coerce').fillna(df_sub_A)
