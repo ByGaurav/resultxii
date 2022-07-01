@@ -185,10 +185,8 @@ qpi_df = pd.DataFrame(data, columns = ['Index', 'Values'])
 st.write("School QPI: ",float(school_qpi))
 st.write("Pass: ",int(school_pass))
 st.write("Fail: ",int(school_fail))
-st.write("Compartment: ",int(school_comp))
 if not school_fail_students.empty:
-  st.write('------- FAIL --------------')
   st.write(school_fail_students)
+st.write("Compartment: ",int(school_comp))
 if not school_comp_students.empty:
-  st.write('------- COMPARTMENT --------------')
   st.write(school_comp_students)
