@@ -13,6 +13,7 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             .viewerBadge_container__1QSob {visibility: hidden;display: none;}
             footer {visibility: hidden;}
+            footer:after {}
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
