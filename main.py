@@ -13,7 +13,7 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             .viewerBadge_container__1QSob {visibility: hidden;display: none;}
             footer {visibility: hidden;}
-            footer:after {}
+            footer:after {content:'Gaurav';display:block;position:relative;color:totmato;visibility: visible;}
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
