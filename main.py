@@ -125,4 +125,6 @@ st.download_button(label='📥 Download Current Result',data=df_xlsx ,file_name=
 #df1 = pd.read_excel(excel_file,sheet_name='Original')
 df_original = df
 df_original = df_original.set_index("R.No.")
-st.dataframe(df_original.astype(str))
+st.dataframe(df_original.astype({'R.No.':str,'Name':str,'SUB1':str,'MRK1':str,'GRD1':str,'SUB2':str,'MRK2':str,'GRD2':str,\
+           'SUB3':str,'MRK3':str,'GRD3':str,'SUB4':str,'MRK4':str,'GRD4':str,'SUB5':str,'MRK5':str,\
+           'GRD5':str,'SUB6':str,'MRK6':str,'GRD6':str,'Res':str,'Total':str,'Per':str}))
