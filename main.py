@@ -126,7 +126,41 @@ df_original = df
 df_original = df_original.set_index("R.No.")
 st.dataframe(df_original.astype(str))
 
-uploaded_file = st.file_uploader("Add text file !")
-if uploaded_file:
-    for line in uploaded_file:
-        st.write(line)
+def analy(subject):
+  df1 = df[ (df.SUB1 == subject)][['Name', 'SUB1','MRK1','GRD1']]
+  df1.columns = ['Name', 'Sub','MRK','GRD']
+  df2 = df[ (df.SUB2 == subject)][['Name', 'SUB2','MRK2','GRD2']]
+  df2.columns = ['Name', 'Sub','MRK','GRD']
+  df3 = df[ (df.SUB3 == subject)][['Name', 'SUB3','MRK3','GRD3']]
+  df3.columns = ['Name', 'Sub','MRK','GRD']
+  df4= df[ (df.SUB4 == subject)][['Name', 'SUB4','MRK4','GRD4']]
+  df4.columns = ['Name', 'Sub','MRK','GRD']
+  df5 = df[ (df.SUB5 == subject)][['Name', 'SUB5','MRK5','GRD5']]
+  df5.columns = ['Name', 'Sub','MRK','GRD']
+  # Consider Additional Subject
+  #df6 = df[ (df.SUB6 == subject)][['Name', 'SUB6','MRK6','GRD6']]
+  #df6.columns = ['Name', 'Sub','MRK','GRD']
+
+  df_sub = df1.append(df2, ignore_index = True) 
+  df_sub = df_sub.append(df3, ignore_index = True)
+  df_sub = df_sub.append(df4, ignore_index = True)
+  df_sub = df_sub.append(df5, ignore_index = True)
+  #df_sub = df_sub.append(df6, ignore_index = True)
+  # Sorted Dataframe of Subject
+  df_sub = df_sub.loc[pd.to_numeric(df_sub.MRK, errors='coerce').sort_values(ascending=False).index]
+  return(df_sub)
+  
+#Creating Subject Analysis Data Frame
+df_sub = pd.DataFrame()
+for i in scode:
+  df_sub = df_sub.append(analy(scode[i])) # Creating Dataframe of all the subjects using Function analy
+    df_sub_A=df_sub[pd.to_numeric(df_sub['MRK'], errors='coerce').notnull()]
+
+# Converting Marks to Numbers
+df_sub_A=df_sub_A[['Name', 'Sub', 'MRK','GRD']].apply(pd.to_numeric,errors='coerce').fillna(df_sub_A)
+#st.dataframe(df_sub)
+subs = df_sub_A['Sub'].unique().tolist()
+show_subs = st.selectbox('Choose Subjects to Display',subs)
+st.dataframe(df_sub_A.loc[(df_sub_A['Sub'] == show_subs)]) # display DataFrame of Selected Subject
+grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(name='Count')
+st.dataframe(grade_count.loc[(grade_count['Sub'] == show_subs)]) # display DataFrame of Selected Subject
