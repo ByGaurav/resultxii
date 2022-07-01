@@ -11,7 +11,7 @@ st.set_page_config(layout="wide",page_icon="rocket",page_title="CBSE XII Result 
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
-            .viewerBadge_container__1QSob {visibility: hidden;}
+            .viewerBadge_container__1QSob {visibility: hidden;display: none;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
