@@ -166,5 +166,6 @@ with col1:
   st.dataframe(df_sub_A.loc[(df_sub_A['Sub'] == show_subs)]) # display DataFrame of Selected Subject
 grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(name='Count')
 #grade_count.set_index(['Sub', 'GRD'],inplace=True)
+st.write(type(grade_count))
 with col2:
   st.dataframe(grade_count.loc[(grade_count['Sub'] == show_subs)]) # display DataFrame of Selected Subject
