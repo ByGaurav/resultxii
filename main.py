@@ -122,5 +122,5 @@ def to_excel(df):
     return processed_data
 df_xlsx = to_excel(df)
 st.download_button(label='📥 Download Current Result',data=df_xlsx ,file_name= excel_file)
-df1 = pd.read_excel(excel_file,sheet_name='Original')
-st.dataframe(df1)
+#df1 = pd.read_excel(excel_file,sheet_name='Original')
+st.dataframe(df)
