@@ -18,6 +18,7 @@ hide_st_style = """
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
             .viewerBadge_link__1S137 {visibility: hidden;}
+            .reportview-container .main footer {visibility: hidden;}
             """
 
 st.markdown(hide_st_style,unsafe_allow_html=True)
