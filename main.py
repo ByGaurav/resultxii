@@ -160,6 +160,9 @@ df_sub_A=df_sub_A[['Name', 'Sub', 'MRK','GRD']].apply(pd.to_numeric,errors='coer
 #st.dataframe(df_sub)
 subs = df_sub_A['Sub'].unique().tolist()
 show_subs = st.selectbox('Choose Subjects to Display',subs)
-st.dataframe(df_sub_A.loc[(df_sub_A['Sub'] == show_subs)]) # display DataFrame of Selected Subject
+col1,col2 = st.columns(2)
+with col1:
+  st.dataframe(df_sub_A.loc[(df_sub_A['Sub'] == show_subs)]) # display DataFrame of Selected Subject
 grade_count = df_sub_A.astype(str).groupby(['Sub','GRD']).size().reset_index(name='Count')
-st.dataframe(grade_count.loc[(grade_count['Sub'] == show_subs)]) # display DataFrame of Selected Subject
+with col2:
+  st.dataframe(grade_count.loc[(grade_count['Sub'] == show_subs)]) # display DataFrame of Selected Subject
