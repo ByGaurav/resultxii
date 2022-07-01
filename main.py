@@ -23,7 +23,8 @@ hide_st_style = """
 st.markdown(hide_st_style,unsafe_allow_html=True)
 
 # Check Uplaoded File
-data_file = st.file_uploader("",type=["txt"],help="Uplaod File Recieved From CBSE. Don't Make Any Changes to the File Upload as it is after Downloading")
+data_file = st.file_uploader("upload")
+#data_file = st.file_uploader("",type=["txt"],help="Uplaod File Recieved From CBSE. Don't Make Any Changes to the File Upload as it is after Downloading")
 if not data_file:
   st.stop()
     #clean(data_file)
@@ -121,5 +122,5 @@ def to_excel(df):
     return processed_data
 df_xlsx = to_excel(df)
 st.download_button(label='📥 Download Current Result',data=df_xlsx ,file_name= excel_file)
-df1 = pd.read_excel(excel_file,sheet_name='Original',usecols='B:X',header=0)
+df1 = pd.read_excel(excel_file,sheet_name='Original')
 st.dataframe(df1)
