@@ -157,6 +157,7 @@ df_sub_A=df_sub[pd.to_numeric(df_sub['MRK'], errors='coerce').notnull()]
 
 # Converting Marks to Numbers
 df_sub_A=df_sub_A[['R.No.','Name', 'Sub', 'MRK','GRD']].apply(pd.to_numeric,errors='coerce').fillna(df_sub_A)
+df_sub_A.set_index("R.No.",inplace=True)
 #st.dataframe(df_sub)
 subs = df_sub_A['Sub'].unique().tolist()
 show_subs = st.selectbox('Choose Subjects to Display',subs)
