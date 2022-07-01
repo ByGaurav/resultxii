@@ -11,14 +11,11 @@ st.set_page_config(layout="wide",page_icon="rocket",page_title="CBSE XII Result 
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
-            .row_heading.level0 {display:none;}
-            .blank {display:none;}
+            .viewerBadge_link__1S137 {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
-            .viewerBadge_link__1S137 {visibility: hidden;}
-            .reportview-container .main footer {visibility: hidden;}
             """
 
 st.markdown(hide_st_style,unsafe_allow_html=True)
