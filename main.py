@@ -69,7 +69,8 @@ with open(clean_file, "w") as f1:
               #f1.write(',')   #Uncoment to write gender
 
 
-              lock = line1.index('301')
+              #lock = line1.index('301')
+              lock = line1.index(str(rno))
               for i in range (2,lock):
                   f1.write(line1[i])
                   if i < lock-1:
