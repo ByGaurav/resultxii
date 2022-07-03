@@ -41,7 +41,7 @@ with open(clean_file, "w") as f1:
     f = data_file
     for line in f:
         line = line.decode('ascii')
-        if rno in line:
+        if str(rno) in line:
         #if "301" in line:
               f1.write("\n")
 
