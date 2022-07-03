@@ -19,9 +19,13 @@ hide_st_style = """
             """
 
 st.markdown(hide_st_style,unsafe_allow_html=True)
+user_input1, user_input2 = st.columns(2)
+with user_input1:
+  rno = int(st.text_input('Enter First Roll Number'))
 
 # Check Uplaoded File
-data_file = st.file_uploader("")
+with user_input2:
+  data_file = st.file_uploader("")
 #data_file = st.file_uploader("",type=["txt"],help="Uplaod File Recieved From CBSE. Don't Make Any Changes to the File Upload as it is after Downloading")
 if not data_file:
   st.stop()
@@ -31,7 +35,7 @@ if not data_file:
 school_code = data_file.name[:-4]
 clean_file = school_code+"_clean.txt"
 excel_file = school_code+".xlsx"
-rno=13602478
+
 # Cleaning File
 with open(clean_file, "w") as f1:
     f1.write('R.No.'+','+'Name'+','+'SUB1'+','+'MRK1'+','+'GRD1'+','+\
