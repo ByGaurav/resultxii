@@ -12,7 +12,12 @@ hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             viewerBadge_container__1QSob {display: none;}
-            footer {visibility: hidden;}
+            footer {position: fixed;
+  right: 0px; bottom: 0px;
+  width: 200px;
+  height:40px;
+  background-color:lightblue;
+  padding: 5px;}
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
