@@ -21,11 +21,11 @@ hide_st_style = """
 st.markdown(hide_st_style,unsafe_allow_html=True)
 user_input1, user_input2 = st.columns(2)
 with user_input1:
-  rno = int(st.text_input('Enter First Roll Number'))
+  rno = int(float(st.text_input('Enter First Roll Number')))
 
 # Check Uplaoded File
 with user_input2:
-  data_file = st.file_uploader("")
+  data_file = st.file_uploader("",type=["txt"])
 #data_file = st.file_uploader("",type=["txt"],help="Uplaod File Recieved From CBSE. Don't Make Any Changes to the File Upload as it is after Downloading")
 if not data_file:
   st.stop()
