@@ -31,6 +31,7 @@ if not data_file:
 school_code = data_file.name[:-4]
 clean_file = school_code+"_clean.txt"
 excel_file = school_code+".xlsx"
+rno=13602478
 # Cleaning File
 with open(clean_file, "w") as f1:
     f1.write('R.No.'+','+'Name'+','+'SUB1'+','+'MRK1'+','+'GRD1'+','+\
@@ -40,7 +41,8 @@ with open(clean_file, "w") as f1:
     f = data_file
     for line in f:
         line = line.decode('ascii')
-        if "301" in line:
+        if rno in line:
+        #if "301" in line:
               f1.write("\n")
 
               line1 = line.split()   #Reading first line in line1
