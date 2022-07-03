@@ -12,7 +12,17 @@ hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             viewerBadge_container__1QSob {display: none;}
-            footer {visibility: hidden;}
+            footer {
+<style> your css code put here</style>
+
+<div class='footer'>
+
+<p>the word you want to tell<a style='display:block;text-align:center;' 
+
+href='https://www.streamlit.io' target='_blank'>your email address put here</a></p>
+
+</div>
+            }
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
