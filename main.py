@@ -19,7 +19,7 @@ hide_st_style = """
             """
 
 st.markdown(hide_st_style,unsafe_allow_html=True)
-user_input1, user_input2 = st.columns(2)
+user_input1, user_input2 = st.columns([1,2])
 with user_input1:
   rno = st.text_input('Enter First Roll Number')
   if rno.isdigit():
