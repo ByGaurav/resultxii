@@ -106,6 +106,9 @@ headerRow = ['R.No.','Name','SUB1','MRK1','GRD1','SUB2','MRK2','GRD2',\
            'SUB3','MRK3','GRD3','SUB4','MRK4','GRD4','SUB5','MRK5',\
            'GRD5','SUB6','MRK6','GRD6','Res']
 df = pd.read_csv(clean_file, skipinitialspace=True, usecols=headerRow)
+if df.empty:
+  st.write('Invalid Input')
+  st.stop()
 scode = {row[0] : row[1] for _, row in pd.read_csv("subject_code.csv").iterrows()}
 df['SUB1']=df['SUB1'].map(scode)
 df['SUB2']=df['SUB2'].map(scode)
