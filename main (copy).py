@@ -53,23 +53,16 @@ with open(clean_file, "w") as f1:
         line = line.decode('ascii')
         if str(rno) in line:
               rno = rno + 1
+        #if "301" in line:
               f1.write("\n")
 
               line1 = line.split()   #Reading first line in line1
-              find_sub = ['301','001','002','302']
-              idx ={}
-              for x in find_sub:
-                  try:
-                      idx[x] = line1.index(x)
-                  except ValueError:
-                      idx=idx
-              first_sub_code = min(idx, key=idx.get)
               line=next(f)
               line = line.decode('ascii')
               line = line.replace("F E", "E")
               line2 =line.split() #Reading Second line in line2
               if len(line2)<12:
-                  line1.insert(line1.index(first_sub_code)+5,'')
+                  line1.insert(line1.index('301')+5,'')
                   for m in range(12-len(line2)):
                         line2.append('')
 
@@ -80,7 +73,7 @@ with open(clean_file, "w") as f1:
               #f1.write(',')   #Uncoment to write gender
 
 
-              lock = line1.index(first_sub_code)
+              lock = line1.index('301')
               for i in range (2,lock):
                   f1.write(line1[i])
                   if i < lock-1:
@@ -180,7 +173,6 @@ df_sub_A=df_sub_A[['R.No.','Name', 'Sub', 'MRK','GRD']].apply(pd.to_numeric,erro
 df_sub_A.set_index("R.No.",inplace=True)
 #st.dataframe(df_sub)
 subs = df_sub_A['Sub'].unique().tolist()
-subs.sort()
 show_subs = st.selectbox('Choose Subjects to Display',subs)
 col1,col2 = st.columns(2)
 with col1:
