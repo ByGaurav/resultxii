@@ -16,6 +16,19 @@ hide_st_style = """
             header {visibility: hidden;}
             .css-1rs6os {visibility: hidden;}
             .css-17ziqus {visibility: hidden;}
+.css-18e3th9 {
+                    padding-top: 0rem;
+                    padding-bottom: 10rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+               .css-1d391kg {
+                    padding-top: 3.5rem;
+                    padding-right: 1rem;
+                    padding-bottom: 3.5rem;
+                    padding-left: 1rem;
+                }
+                </style>
             """
 
 st.markdown(hide_st_style,unsafe_allow_html=True)
