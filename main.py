@@ -37,7 +37,7 @@ st.markdown(hide_st_style,unsafe_allow_html=True)
 st.info('Disclaimer: Programmer is not responsible for any errors or omissions, or for the results obtained from the use of this information. All information in this site is provided "as is", with no guarantee of completeness, accuracy, timeliness or of the results obtained from the use of this information...')
 user_input1, user_input2 = st.columns([1,2])
 with user_input1:
-  rno = st.text_input('Enter First Roll Number')
+  rno = st.text_input('Enter First Roll Number of Class 12th')
   if rno.isdigit():
     rno = int(float(rno))
   else:
