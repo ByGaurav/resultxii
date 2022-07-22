@@ -211,10 +211,10 @@ with col2:
 # Calculating School Result
 school_qpi = round(df_sub_A.mean()[['MRK']],2)
 school_pass = df[(df['Res']=='PASS')].count()[['Res']]
-school_fail = df[(df['Res']=='FAIL')].count()[['Res']]
+school_fail = df[(df['Res']=='ESSENTIAL')].count()[['Res']]
 school_comp = df[(df['Res']=='COMP')].count()[['Res']]
 
-school_fail_students = df[(df['Res']=='FAIL')]
+school_fail_students = df[(df['Res']=='ESSENTIAL')]
 school_comp_students = df[(df['Res']=='COMP')]
 
 data = [["School QPI",float(school_qpi)],["Pass",int(school_pass)],["Fail",int(school_fail)],["Compartment",int(school_comp)]]
